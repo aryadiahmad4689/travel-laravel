@@ -26,7 +26,7 @@
                 
                 <td>  
                  <a href="" class="btn btn-danger btn-sm">Hapus</a>
-                 <a href="" class="btn btn-warning btn-sm">Edit</a>
+                <a href="{{route('editPemesanan',$item->id)}}" class="btn btn-warning btn-sm">Edit</a>
                 <a href="{{route('detailpemesanan',[$item->id_tiket,$item->id_penerbangan])}}" class="btn btn-primary btn-sm">Detail</a>
                </td>
             </tr>

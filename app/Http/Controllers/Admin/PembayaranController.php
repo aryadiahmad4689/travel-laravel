@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\pembayaran;
 
 class PembayaranController extends Controller
 {
@@ -23,9 +24,12 @@ class PembayaranController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function daftar()
     {
         //
+        $pembayaran = pembayaran::all();
+
+        return view('admin.daftarpembayaran',['pembayaran'=>$pembayaran]);
     }
 
     /**
@@ -37,6 +41,17 @@ class PembayaranController extends Controller
     public function store(Request $request)
     {
         //
+        $files =$request->file('bukti');
+        $pembayaran  = new pembayaran;
+
+        $pembayaran->email = $request->get('email');
+        $pembayaran->kode_booking = $request->get('kodeBooking');
+        $destinationPath = 'public/image/'; // upload path
+        $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
+        $files->move($destinationPath, $profileImage);
+        $pembayaran->image = $profileImage;
+        $pembayaran->save();
+        return redirect()->back();
     }
 
     /**
@@ -82,5 +97,8 @@ class PembayaranController extends Controller
     public function destroy($id)
     {
         //
+     pembayaran::where('id',$id)->delete();
+
+     return redirect()->back();
     }
 }

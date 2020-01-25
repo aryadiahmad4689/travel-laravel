@@ -95,6 +95,9 @@ class PemesananController extends Controller
     public function edit($id)
     {
         //
+        $pemesanan = Pemesanan::findOrFail($id);
+
+        return view('admin.editpemesanan',['pemesanan'=>$pemesanan]);
     }
 
     /**
@@ -107,6 +110,11 @@ class PemesananController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $pemesanan = Pemesanan::findOrFail($id);
+        $pemesanan->status = $request->get('status');
+        $pemesanan->save();
+
+        return redirect()->route('datapemesanan');
     }
 
     /**

@@ -7,9 +7,7 @@
         <table class="table">
                 <thead>
                   <tr>
-                    {{-- <th scope="col">Nama</th>
-                    {{-- <th scope="col">Alamat</th> --}}
-                    {{-- <th scope="col">Tanggal Lahir</th> --}}
+                    
                     <th scope="col">Nama Maskapai</th>
                     <th scope="col">Kelas</th>
                     <th scope="col">Harga </th>

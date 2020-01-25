@@ -30,10 +30,17 @@ Route::group(['namespace' => 'Admin' ], function () {
 
     // pembayaran
     Route::get('/pembayaran','PembayaranController@index')->name('indexpembayaran');
+   
+
 
 
     Route::group(['middleware' => ['auth']], function () {
         Route::group(['middleware' => ['superadmin']], function () {
+    // Pembayaran
+    Route::get('/daftarpembayaran','PembayaranController@daftar')->name('daftarpembayaran');
+    Route::post('/store','PembayaranController@store')->name('storePembayaran');
+    Route::get('/delete/{id}','PembayaranController@destroy')->name('deletePembayaran');
+
     // tiket
     Route::get('/tambahtiket','TiketController@create')->name('tambahtiket');
     Route::post('/storetiket','TiketController@store')->name('storetiket');
@@ -43,6 +50,10 @@ Route::group(['namespace' => 'Admin' ], function () {
     Route::get('/datapemesanan','PemesananController@datapemesanan')->name('datapemesanan');
     Route::get('/detailpemesanan/{id_tiket}/{id_penerbangan}','PemesananController@detailpemesanan')->name('detailpemesanan');
     Route::get('/search','PemesananController@search')->name('searchpemesanan');
+    Route::put('/update/{id}','PemesananController@update')->name('updatepemesanan');
+    Route::get('/edit/{id}','PemesananController@edit')->name('editPemesanan');
+
+
     
 
 

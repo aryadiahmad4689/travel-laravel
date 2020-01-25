@@ -5,11 +5,12 @@
     <div class="row p-3">
             <div class="card p-4 mt-3 m-auto p-auto" style="width: 40rem;">
                     <ul class="list-group list-group-flush">
-<form action="{{route('searchpemesanan')}}" method="GET">
+<form action="{{route('storePembayaran')}}" method="post" enctype="multipart/form-data">
+    {{ csrf_field() }}
 <div class="form-row">
     <div class="form-group col-md-6">
     <label for="inputEmail4">Email Anda</label>
-    <input type="text" class="form-control" name="nama" id="inputEmail4" placeholder="Masukan Email">
+    <input type="text" class="form-control" name="email" id="inputEmail4" placeholder="Masukan Email">
     </div>
 </div>
 <div class="form-group">
@@ -19,7 +20,7 @@
 <div class="form-group">
     <label for="inputAddress2">Bukti Pembayaran</label>
     <input type="file" name="bukti" class="form-control" id="inputAddress2" >
-<button type="submit" class="btn btn-primary mt-2">Filter</button>
+<button type="submit" class="btn btn-primary mt-2">Bayar</button>
 </form>
                     </ul>
                   </div>
