@@ -16,7 +16,7 @@ class TiketController extends Controller
     public function index()
     {
         //
-        $tiket = Tiket::all();
+        $tiket = Tiket::orderBy('id','DESC')->get();
         return view('admin.Indextiket',['tikets'=>$tiket]);
     }
 

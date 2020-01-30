@@ -20,7 +20,7 @@ class PemesananController extends Controller
     {
         //
       
-        $pemesanan = DB::table('pemesanans')->where('id','=',$id)->get();
+        $pemesanan = DB::table('pemesanans')->where('id','=',$id)->orderBy('id','DESC')->get();
         // dd($pemesanan);
         return view('admin.indexpemesanan',['collection'=>$pemesanan]);
     }
@@ -54,8 +54,8 @@ class PemesananController extends Controller
     public function store(Request $request)
     {
         //
-        $kode = str_random(8);
-        $pemesanan = new Pemesanan;
+           $kode = str_random(8);
+           $pemesanan = new Pemesanan;
       
            $pemesanan->id_tiket     =$request->get('idtiket');
            $pemesanan->id_penerbangan =$request->get('id');
@@ -70,8 +70,6 @@ class PemesananController extends Controller
            $pemesanan->kode_booking =$kode;
 
            $pemesanan->save();
-      
-
         return redirect()->route('indexpemesanan',$pemesanan->id);
     }
 
@@ -130,16 +128,13 @@ class PemesananController extends Controller
 
     public function datapemesanan()
     {
-       $datapemesanan = Pemesanan::all();
+       $datapemesanan = Pemesanan::orderBy('updated_at','DESC')->get();
         return view('admin.datapemesanan',['collection'=>$datapemesanan]);
     }
 
     public function detailpemesanan($id_tiket,$id_penerbangan)
     {
-        $pemesanan  = DB::table('pemesanans')
-        ->join('tikets', 'pemesanans.id_tiket', '=', 'tikets.id')->join('data_penerbangans', 'pemesanans.id_penerbangan', '=', 'data_penerbangans.id')->where('pemesanans.id_tiket','=', $id_tiket)->where('pemesanans.id_penerbangan','=',$id_penerbangan)->select('data_penerbangans.*', 'tikets.*','pemesanans.*')->get();
-       
-
+        $pemesanan  = DB::table('pemesanans')->join('tikets', 'pemesanans.id_tiket', '=', 'tikets.id')->join('data_penerbangans', 'pemesanans.id_penerbangan', '=', 'data_penerbangans.id')->where('pemesanans.id_tiket','=', $id_tiket)->where('pemesanans.id_penerbangan','=',$id_penerbangan)->select('data_penerbangans.*', 'tikets.*','pemesanans.*')->get();
         return view('admin.detailpemesanan',['pemesanan'=>$pemesanan]);
         
     }

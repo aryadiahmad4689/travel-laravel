@@ -16,7 +16,7 @@ class Pemesanan extends Model
     // public function tikets(){
     //     return $this->belongsTo('App\tikets', 'id_tiket');
     // }
-    
+
     // public function penerbangans(){
     //     return $this->belongsTo('App\DataPenerbangan', 'id_penerbangan');
     // }

@@ -18,7 +18,7 @@ class DataPenerbanganController extends Controller
     public function index()
     {
         //
-        $penerbangan = DataPenerbangan::all();
+        $penerbangan = DataPenerbangan::orderBy('id','DESC')->get();
         return view('admin.indexpenerbangan',['penerbangans'=>$penerbangan]);
     }
 

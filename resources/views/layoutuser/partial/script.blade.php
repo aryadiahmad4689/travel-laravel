@@ -1,4 +1,4 @@
-<script src="{!! asset('assets/plugins/pace/pace.min.js') !!} " type="text/javascript"></script>
+{{-- <script src="{!! asset('assets/plugins/pace/pace.min.js') !!} " type="text/javascript"></script>
 <script src="{!! asset('assets/plugins/jquery/jquery-3.2.1.min.js') !!} " type="text/javascript"></script>
 <script src="{!! asset('assets/plugins/modernizr.custom.js') !!} " type="text/javascript"></script>
 <script src="{!! asset('assets/plugins/jquery-ui/jquery-ui.min.js') !!} " type="text/javascript"></script>
@@ -33,7 +33,7 @@
 <script src="{!! asset('assets/plugins/bootstrap-typehead/typeahead.bundle.min.js') !!} "></script>
 <script src="{!! asset('assets/plugins/bootstrap-typehead/typeahead.jquery.min.js') !!} "></script>
 <script src="{!! asset('assets/plugins/handlebars/handlebars-v4.0.5.js') !!} "></script>
-<script src="{!! asset('assets/js/form_elements.js') !!}" type="text/javascript"></script>
+<script src="{!! asset('assets/js/form_elements.js') !!}" type="text/javascript"></script> --}}
 <script type="text/javascript">
   $('#btn-delete').click(function(event) {
     swal({

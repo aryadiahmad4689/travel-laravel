@@ -1,4 +1,4 @@
-<script src="{!! asset('assets/plugins/pace/pace.min.js') !!} " type="text/javascript"></script>
+{{-- <script src="{!! asset('assets/plugins/pace/pace.min.js') !!} " type="text/javascript"></script>
 <script src="{!! asset('assets/plugins/jquery/jquery-3.2.1.min.js') !!} " type="text/javascript"></script>
 <script src="{!! asset('assets/plugins/modernizr.custom.js') !!} " type="text/javascript"></script>
 <script src="{!! asset('assets/plugins/jquery-ui/jquery-ui.min.js') !!} " type="text/javascript"></script>
@@ -51,7 +51,7 @@
 <!-- BEGIN PAGE LEVEL JS -->
 <script src="{!! asset('assets/js/datatables.js') !!} " type="text/javascript"></script>
 <script src="{!! asset('assets/js/scripts.js') !!} " type="text/javascript"></script>
-<!-- END PAGE LEVEL JS -->
+<!-- END PAGE LEVEL JS --> --}}
 
 <!-- java script tambahan saya -->
 <script src="{!! asset('assets/js/tambahan.js') !!} " type="text/javascript"></script>
